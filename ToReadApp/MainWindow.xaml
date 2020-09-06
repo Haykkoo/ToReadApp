@@ -1,0 +1,20 @@
+﻿<Window x:Class="ToReadApp.MainWindow" Loaded="Window_Loaded"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ToReadApp"
+        mc:Ignorable="d"
+        Title="ToReadApp" Height="450" Width="800">
+    <Grid >
+        <DataGrid x:Name="dgToReadList" FontSize="16" FontWeight="Medium" Margin="10" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=Text}" IsReadOnly="False" Header="Books" Width="*" />
+                <DataGridCheckBoxColumn Binding="{Binding Path=IsDone, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="False" Header="Read" Width="80"/>
+                <DataGridTextColumn Binding="{Binding Path=Date}" IsReadOnly="True" Header="Date" Width="*"/>
+            </DataGrid.Columns>
+            
+        </DataGrid>
+        
+    </Grid>
+</Window>
