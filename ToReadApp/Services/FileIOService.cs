@@ -5,7 +5,7 @@ using ToReadApp.Models;
 
 namespace ToReadApp.Services
 {
-    class FileIOService
+    public class FileIOService
     {
         private readonly string PATH;
 
@@ -14,18 +14,18 @@ namespace ToReadApp.Services
             PATH = path;
         }
 
-        public BindingList<ToReadModel> LoadData()
+        public BindingList<Book> LoadData()
         {
             var fileExists = File.Exists(PATH);
             if (!fileExists)
             {
                 File.CreateText(PATH).Dispose();
-                return new BindingList<ToReadModel>();
+                return new BindingList<Book>();
             }
             using (var reader = File.OpenText(PATH))
             {
                 var fileText = reader.ReadToEnd();
-                return JsonConvert.DeserializeObject<BindingList<ToReadModel>>(fileText);
+                return JsonConvert.DeserializeObject<BindingList<Book>>(fileText);
             }
         }
         public void SaveData(object _ToReadBookList)

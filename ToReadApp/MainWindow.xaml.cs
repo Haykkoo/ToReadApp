@@ -11,7 +11,7 @@ namespace ToReadApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        private BindingList<ToReadModel> _ToReadBookList;
+        private BindingList<Book> _ToReadBookList;
         private readonly string PATH = $"{Environment.CurrentDirectory}\\BookList.json";
         private FileIOService _fileIOService;
         public MainWindow() 

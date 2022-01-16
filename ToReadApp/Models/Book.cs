@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace ToReadApp.Models
 {
-    class ToReadModel : INotifyPropertyChanged
+    public class Book : INotifyPropertyChanged
     {
         public DateTime Date { get; set; } = DateTime.Now;
         private bool _isDone;
@@ -25,7 +25,7 @@ namespace ToReadApp.Models
                     return;
 
                 _isDone = value;
-                OnPropertyChanged("IsDone");
+                OnPropertyChanged(nameof(IsDone));
 
             }
         }
@@ -39,7 +39,7 @@ namespace ToReadApp.Models
                     return;
 
                 _text = value;
-                OnPropertyChanged("Text");
+                OnPropertyChanged(nameof(Text));
             }
         }
 
